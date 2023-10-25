@@ -1,4 +1,4 @@
--------Explorando um pouco mais do where----------------------------------------
+-------------------------EXPLORANDO WHERE---------------------------------------
 
 select nr_carro, cd_equipe, nm_piloto, dt_nascimento, nr_titulos
 from t_f1_piloto
