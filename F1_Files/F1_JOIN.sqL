@@ -58,6 +58,39 @@ select d.sg_depto, e.sg_equipe, d.nm_depto, e.nm_equipe
 from t_f1_departamento d, t_f1_equipe e
 where e.cd_depto(+) = d.cd_depto
 --------------------------------------------------------------------------------
+select nm_equipe from t_f1_equipe
+--------------------------------------------------------------------------------
+select e1.nm_equipe, e2.nm_equipe
+from t_f1_equipe e1, t_f1_equipe e2
+where e1.cd_equipe < e2.cd_equipe
+----------------------Self Non-Equi-Joins---------------------------------------
+select e1.nm_equipe, e2.nm_equipe, sysdate + rownum match_date
+from t_f1_equipe e1, t_f1_equipe e2
+where e1.cd_equipe > e2.cd_equipe
+---------------------- Subquery-------------------------------------------------
+select e.cd_equipe, e.nm_equipe
+from t_f1_equipe e
+where exists (
+    select *
+    from t_f1_departamento p
+    where p.cd_depto < 5
+    and e.cd_depto = p.cd_depto
+)
+-----------------------Join-----------------------------------------------------
+select e.cd_equipe, e.nm_equipe
+from t_f1_equipe e, t_f1_departamento p
+where e.cd_depto = p.cd_depto
+    and p.cd_depto < 5;
+--------------------------------------------------------------------------------
+
+    
+
+
+
+
+
+
+
 
 
 
