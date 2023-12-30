@@ -1,2 +1,2 @@
 # SQL_repository
-Repositório destinados a arquivos sql.
+Repository for SQL files.
