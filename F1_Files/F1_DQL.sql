@@ -195,7 +195,15 @@ update circuito_corridas
 set nm_equipe = 'Alfa Romeo'
 where cd_circuito = 3
 --------------------------------------------------------------------------------
-
+desc user_updatable_columns
+--------------------------------------------------------------------------------
+select*from user_updatable_columns 
+where table_name = 't_f1_contrato_piloto';
+--------------------------------------------------------------------------------
+select c.cd_equipe, c.nm_equipe, p.cd_contrato, p.cd_equipe
+from t_f1_equipe c, t_f1_contrato_piloto p
+where c.cd_equipe = p.cd_equipe
+--------------------------------------------------------------------------------
 
 
 
