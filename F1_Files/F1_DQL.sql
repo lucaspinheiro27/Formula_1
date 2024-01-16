@@ -63,3 +63,33 @@ select cd_equipe, nr_titulos, count(nr_carro)
 from t_f1_piloto
 group by cd_equipe, nr_titulos;
 --------------------------------------------------------------------------------
+select cd_equipe, count(nr_carro)
+from t_f1_piloto
+where nr_titulos > 2
+group by cd_equipe;
+--------------------------------------------------------------------------------
+select cd_equipe, count(nr_carro)
+from t_f1_piloto
+group by cd_equipe
+having cd_equipe < 5;
+--------------------------------------------------------------------------------
+select cd_equipe, count(nr_carro)
+from t_f1_piloto
+group by cd_equipe
+having count(nr_carro) < 5;
+--------------------------------------------------------------------------------
+select cd_equipe, count(nr_carro)
+from t_f1_piloto
+where nr_titulos < 2
+group by cd_equipe
+having count(nr_carro) < 5;
+--------------------------------------------------------------------------------
+select nr_carro 
+from t_f1_resultado
+where pontuacao > (select avg(pontuacao)from t_f1_resultado);
+--------------------------------------------------------------------------------
+select cd_corrida, count(*)
+from t_f1_resultado
+group by cd_corrida
+having count(*) = (select max(count(*)) from t_f1_resultado group by cd_corrida);
+--------------------------------------------------------------------------------
